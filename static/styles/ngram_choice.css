@@ -1,0 +1,7 @@
+.box {
+  border: 5px solid rebeccapurple;
+  background-color: lightgray;
+  margin: 40px;
+  width: 1000px;
+  height: 270px;
+}

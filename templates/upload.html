@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Обработка текстовых корзин</title>
+    <script type="text/javascript">
+        function IsEmpty() {
+        if (document.forms['frm'].question.value === "") {
+            alert("empty");
+            return false;
+        }
+        return true;
+        }
+    </script>
+</head>
+
+<body>
+<t>Загрузите файл с данными (csv формата)</t>
+<form action = "http://localhost:5000/upload" method="post" enctype="multipart/form-data">
+    <p><input type="file" name="file" accept=".csv" required/></p>
+    <t>Введите максимальную длину строки</t>
+        <p><input type="number" name="max_text_len" value="75"></p>
+    <t>Название столбца, где находятся строки для очистки</t>
+        <p><input type="text" name="column_name" value="TEXT"></p>
+    <p><input type="checkbox" id="generate_ngrams" name="generate_ngrams" checked>
+        <label for=generate_ngrams">Сгенерировать важные словосочетания для корзины</label></p>
+    <t>Введите текст, который должен присутствовать в текстах через запятую.<br>(например - "ипп, накопительное страхование жизни")</t>
+        <p><input type="text" name="target_main" id="target_main"></p>
+    <t>Введите текст действия, который должен присутствовать в текстах через запятую.<br>(например - "купить, оформить")</t>
+        <p><input type="text" name="target_action" id="target_action"></p>
+    <p><input type="submit" value="Отправить"></p>
+</form>
+</body>
+</html>

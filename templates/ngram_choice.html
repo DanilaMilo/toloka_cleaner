@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/ngram_choice.css') }}">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Обработка текстовых корзин</title>
+</head>
+<body>
+<form action = "http://localhost:5000/upload_ngram" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="filename" value="{{filename}}">
+    <t>Введите максимальную длину строки</t>
+        <p><input type="number" name="max_text_len" value={{max_text_len}}></p>
+    <t>Название столбца, где находятся строки для очистки</t>
+        <p><input type="text" name="column_name" value={{column_name}}></p>
+    <t>Введите текст, который должен присутствовать в текстах, через запятую.<br>(например - "ипп, накопительное страхование жизни")</t>
+        <p><input type="text" name=target_main value={{target_main}}>
+    <t>Введите текст действия, который должен присутствовать в текстах, через запятую(опционально).<br>(например - "купить, оформить")</t>
+        <p><input type="text" name=target_action value={{target_action}}></p>
+    <t>Выберите текст, который подходит вам, он будет включён в поиск(могут быть ошибки).</p>
+    Текста имеют нормализованный вид(в единственном числе и именительном падеже).
+    </t>
+    <div class="box">
+        </p>
+        <input type="checkbox" id="ngram_main_0" name="{{ngrams_main[0]}}_main">
+            <label for=ngrams_main_1">{{ngrams_main[0]}}</label>
+        <input type="checkbox" id="ngram_main_1" name="{{ngrams_main[1]}}_main">
+            <label for=ngrams_main_2">{{ngrams_main[1]}}</label>
+        <input type="checkbox" id="ngram_main_2" name="{{ngrams_main[2]}}_main">
+            <label for=ngram_main_3">{{ngrams_main[2]}}</label>
+        <input type="checkbox" id="ngram_main_3" name="{{ngrams_main[3]}}_main">
+            <label for=ngram_main_4">{{ngrams_main[3]}}</label></p>
+        <input type="checkbox" id="ngram_main_4" name="{{ngrams_main[4]}}_main">
+            <label for=ngram_main_5">{{ngrams_main[4]}}</label>
+        <input type="checkbox" id="ngram_main_5" name="{{ngrams_main[5]}}_main">
+            <label for=ngram_main_6">{{ngrams_main[5]}}</label>
+        <input type="checkbox" id="ngram_main_6" name="{{ngrams_main[6]}}_main">
+            <label for=ngram_main_7">{{ngrams_main[6]}}</label>
+        <input type="checkbox" id="ngram_main_7" name="{{ngrams_main[7]}}_main">
+            <label for=ngram_main_8">{{ngrams_main[7]}}</label></p>
+        <input type="checkbox" id="ngram_main_8" name="{{ngrams_main[8]}}_main">
+            <label for=ngram_main_9">{{ngrams_main[8]}}</label>
+        <input type="checkbox" id="ngram_main_9" name="{{ngrams_main[9]}}_main">
+            <label for=ngram_main_10">{{ngrams_main[9]}}</label>
+        <input type="checkbox" id="ngram_main_10" name="{{ngrams_main[10]}}_main">
+            <label for=ngram_main_11">{{ngrams_main[10]}}</label>
+        <input type="checkbox" id="ngram_main_11" name="{{ngrams_main[11]}}_main">
+            <label for=ngram_main_12">{{ngrams_main[11]}}</label></p>
+        <input type="checkbox" id="ngram_main_12" name="{{ngrams_main[12]}}_main">
+            <label for=ngram_main_13">{{ngrams_main[12]}}</label>
+        <input type="checkbox" id="ngram_main_13" name="{{ngrams_main[13]}}_main">
+            <label for=ngram_main_14">{{ngrams_main[13]}}</label>
+        <input type="checkbox" id="ngram_main_14" name="{{ngrams_main[14]}}_main">
+            <label for=ngram_main_15">{{ngrams_main[14]}}</label>
+        <input type="checkbox" id="ngram_main_15" name="{{ngrams_main[15]}}_main">
+            <label for=ngram_main_15">{{ngrams_main[15]}}</label></p>
+        <input type="checkbox" id="ngram_main_16" name="{{ngrams_main[16]}}_main">
+            <label for=ngram_main_15">{{ngrams_main[16]}}</label>
+        <input type="checkbox" id="ngram_main_17" name="{{ngrams_main[17]}}_main">
+            <label for=ngram_main_15">{{ngrams_main[17]}}</label>
+        <input type="checkbox" id="ngram_main_18" name="{{ngrams_main[18]}}_main">
+            <label for=ngram_main_15">{{ngrams_main[18]}}</label>
+        <input type="checkbox" id="ngram_main_19" name="{{ngrams_main[19]}}_main">
+            <label for=ngram_main_15">{{ngrams_main[19]}}</label></p>
+        <input type="checkbox" id="ngram_main_20" name="{{ngrams_main[20]}}_main">
+            <label for=ngram_main_15">{{ngrams_main[20]}}</label>
+        <input type="checkbox" id="ngram_main_21" name="{{ngrams_main[21]}}_main">
+            <label for=ngram_main_15">{{ngrams_main[21]}}</label>
+        <input type="checkbox" id="ngram_main_22" name="{{ngrams_main[22]}}_main">
+            <label for=ngram_main_15">{{ngrams_main[22]}}</label>
+        <input type="checkbox" id="ngram_main_23" name="{{ngrams_main[23]}}_main">
+            <label for=ngram_main_15">{{ngrams_main[23]}}</label>
+        <input type="checkbox" id="ngram_main_24" name="{{ngrams_main[24]}}_main">
+            <label for=ngram_main_15">{{ngrams_main[24]}}</label></p>
+        <input type="checkbox" id="ngram_main_25" name="{{ngrams_main[25]}}_main">
+            <label for=ngram_main_15">{{ngrams_main[25]}}</label>
+        <input type="checkbox" id="ngram_main_26" name="{{ngrams_main[26]}}_main">
+            <label for=ngram_main_15">{{ngrams_main[26]}}</label>
+        <input type="checkbox" id="ngram_main_27" name="{{ngrams_main[27]}}_main">
+            <label for=ngram_main_15">{{ngrams_main[27]}}</label>
+        <input type="checkbox" id="ngram_main_28" name="{{ngrams_main[28]}}_main">
+            <label for=ngram_main_15">{{ngrams_main[28]}}</label>
+        <input type="checkbox" id="ngram_main_29" name="{{ngrams_main[29]}}_main">
+            <label for=ngram_main_15">{{ngrams_main[29]}}</label></p>
+    </div>
+
+    <t>Выберите текст действия, который подходит вам, он будет включён в поиск(могут быть ошибки).</p>
+    </t>
+    <div class="box">
+        </p>
+        <input type="checkbox" id="ngram_action_0" name="{{ngrams_action[0]}}_action">
+            <label for=ngrams_action_1">{{ngrams_action[0]}}</label>
+        <input type="checkbox" id="ngram_action_1" name="{{ngrams_action[1]}}_action">
+            <label for=ngrams_action_2">{{ngrams_action[1]}}</label>
+        <input type="checkbox" id="ngram_action_2" name="{{ngrams_action[2]}}_action">
+            <label for=ngram_action_3">{{ngrams_action[2]}}</label>
+        <input type="checkbox" id="ngram_action_3" name="{{ngrams_action[3]}}_action">
+            <label for=ngram_action_4">{{ngrams_action[3]}}</label></p>
+        <input type="checkbox" id="ngram_action_4" name="{{ngrams_action[4]}}_action">
+            <label for=ngram_action_5">{{ngrams_action[4]}}</label>
+        <input type="checkbox" id="ngram_action_5" name="{{ngrams_action[5]}}_action">
+            <label for=ngram_action_6">{{ngrams_action[5]}}</label>
+        <input type="checkbox" id="ngram_action_6" name="{{ngrams_action[6]}}_action">
+            <label for=ngram_action_7">{{ngrams_action[6]}}</label>
+        <input type="checkbox" id="ngram_action_7" name="{{ngrams_action[7]}}_action">
+            <label for=ngram_action_8">{{ngrams_action[7]}}</label></p>
+        <input type="checkbox" id="ngram_action_8" name="{{ngrams_action[8]}}_action">
+            <label for=ngram_action_9">{{ngrams_action[8]}}</label>
+        <input type="checkbox" id="ngram_action_9" name="{{ngrams_action[9]}}_action">
+            <label for=ngram_action_10">{{ngrams_action[9]}}</label>
+        <input type="checkbox" id="ngram_action_10" name="{{ngrams_action[10]}}_action">
+            <label for=ngram_action_11">{{ngrams_action[10]}}</label>
+        <input type="checkbox" id="ngram_action_11" name="{{ngrams_action[11]}}_action">
+            <label for=ngram_action_12">{{ngrams_action[11]}}</label></p>
+        <input type="checkbox" id="ngram_action_12" name="{{ngrams_action[12]}}_action">
+            <label for=ngram_action_13">{{ngrams_action[12]}}</label>
+        <input type="checkbox" id="ngram_action_13" name="{{ngrams_action[13]}}_action">
+            <label for=ngram_action_14">{{ngrams_action[13]}}</label>
+        <input type="checkbox" id="ngram_action_14" name="{{ngrams_action[14]}}_action">
+            <label for=ngram_action_15">{{ngrams_action[14]}}</label>
+        <input type="checkbox" id="ngram_action_15" name="{{ngrams_action[15]}}_action">
+            <label for=ngram_action_15">{{ngrams_action[15]}}</label></p>
+        <input type="checkbox" id="ngram_action_16" name="{{ngrams_action[16]}}_action">
+            <label for=ngram_action_15">{{ngrams_action[16]}}</label>
+        <input type="checkbox" id="ngram_action_17" name="{{ngrams_action[17]}}_action">
+            <label for=ngram_action_15">{{ngrams_action[17]}}</label>
+        <input type="checkbox" id="ngram_action_18" name="{{ngrams_action[18]}}_action">
+            <label for=ngram_action_15">{{ngrams_action[18]}}</label>
+        <input type="checkbox" id="ngram_action_19" name="{{ngrams_action[19]}}_action">
+            <label for=ngram_action_15">{{ngrams_action[19]}}</label></p>
+        <input type="checkbox" id="ngram_action_20" name="{{ngrams_action[20]}}_action">
+            <label for=ngram_action_15">{{ngrams_action[20]}}</label>
+        <input type="checkbox" id="ngram_action_21" name="{{ngrams_action[21]}}_action">
+            <label for=ngram_action_15">{{ngrams_action[21]}}</label>
+        <input type="checkbox" id="ngram_action_22" name="{{ngrams_action[22]}}_action">
+            <label for=ngram_action_15">{{ngrams_action[22]}}</label>
+        <input type="checkbox" id="ngram_action_23" name="{{ngrams_action[23]}}_action">
+            <label for=ngram_action_15">{{ngrams_action[23]}}</label>
+        <input type="checkbox" id="ngram_action_24" name="{{ngrams_action[24]}}_action">
+            <label for=ngram_action_15">{{ngrams_action[24]}}</label></p>
+        <input type="checkbox" id="ngram_action_25" name="{{ngrams_action[25]}}_action">
+            <label for=ngram_action_15">{{ngrams_action[25]}}</label>
+        <input type="checkbox" id="ngram_action_26" name="{{ngrams_action[26]}}_action">
+            <label for=ngram_action_15">{{ngrams_action[26]}}</label>
+        <input type="checkbox" id="ngram_action_27" name="{{ngrams_action[27]}}_action">
+            <label for=ngram_action_15">{{ngrams_action[27]}}</label>
+        <input type="checkbox" id="ngram_action_28" name="{{ngrams_action[28]}}_action">
+            <label for=ngram_action_15">{{ngrams_action[28]}}</label>
+        <input type="checkbox" id="ngram_action_29" name="{{ngrams_action[29]}}_action">
+            <label for=ngram_action_15">{{ngrams_action[29]}}</label></p>
+    </div>
+
+    <p><input type="submit" value="Далее"></p>
+</form>
+</body>
+</html>

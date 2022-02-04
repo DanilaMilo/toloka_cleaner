@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Обработка текстовых корзин</title>
+</head>
+<body>
+<t>Загрузите файл с данными (csv формата)</t>
+<form action = "http://localhost:5000/upload" method="post" enctype="multipart/form-data">
+    <p><input type="file" name="file" accept=".csv" required/></p>
+    <t>Введите максимальную длину строки</t>
+        <p><input type="number" name="max_text_len" value="75"></p>
+    <t>Название столбца, где находятся строки для очистки</t>
+        <p><input type="text" name="column_name" value={{column_name}}></p>
+    <t>Введите текст, который должен присутствовать в текстах через запятую.<br>(например - "ипп, накопительное страхование жизни")</t>
+        <p><input type="text" name="target_main" value={{target_main}}></p>
+    <t>Введите текст действия, который должен присутствовать в текстах через запятую.<br>(например - "купить, оформить")</t>
+        <p><input type="text" name="target_action" value={{target_action}}></p>
+    <p><input type="submit" value="Отправить"></p>
+</form>
+<form action = "http://localhost:5000/download" method="post" enctype="multipart/form-data">
+    <label for="file_to_download"> Скачать результат</label>
+    <input type="submit" value={{filename}} id="file_to_download" name = "file_to_download">
+</form>
+</body>
+</html>
